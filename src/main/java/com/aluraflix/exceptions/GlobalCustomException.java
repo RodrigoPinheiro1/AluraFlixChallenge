@@ -1,5 +1,6 @@
 package com.aluraflix.exceptions;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestControllerAdvice
-public class Message {
+public class GlobalCustomException {
 
 
     @Autowired
@@ -37,6 +38,12 @@ public class Message {
         });
 
         return validacaoDtos;
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(EntityNotFoundException.class)
+    public void notFound(Exception e) {
+        e.printStackTrace();
     }
 
 }
