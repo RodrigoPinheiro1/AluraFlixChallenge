@@ -1,0 +1,24 @@
+package com.aluraflix.Controller.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.UUID;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class CategoriasDto {
+
+    private UUID id;
+
+    private String titulo;
+
+    private String cor;
+
+    private Boolean enable;
+
+}
